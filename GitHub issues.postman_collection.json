@@ -1,0 +1,277 @@
+{
+	"info": {
+		"_postman_id": "747331aa-c199-4af1-b281-6630c03e4ebc",
+		"name": "Задание 2_GitHub issues",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27741083",
+		"_collection_link": "https://red-escape-447289.postman.co/workspace/New~4b4ea3f5-8372-4e1f-95ac-b4ec7a48546a/collection/27741083-747331aa-c199-4af1-b281-6630c03e4ebc?action=share&source=collection_link&creator=27741083"
+	},
+	"item": [
+		{
+			"name": "Create Issue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "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",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Issue 1\",\r\n    \"body\": \"Something went wrong\",\r\n    \"labels\": [\"bug\"],\r\n    \"assignees\": [\"Andrey-Andriyas\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}repos/Andrey-Andriyas/Issue/issues",
+					"host": [
+						"{{BaseURL}}repos"
+					],
+					"path": [
+						"Andrey-Andriyas",
+						"Issue",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting list of issues",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "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",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}repos/Andrey-Andriyas/Issue/issues",
+					"host": [
+						"{{BaseURL}}repos"
+					],
+					"path": [
+						"Andrey-Andriyas",
+						"Issue",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change name of issue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "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",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Issue 2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}repos/Andrey-Andriyas/Issue/issues/6",
+					"host": [
+						"{{BaseURL}}repos"
+					],
+					"path": [
+						"Andrey-Andriyas",
+						"Issue",
+						"issues",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete issue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "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",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}repos/Andrey-Andriyas/Issue/issues/5",
+					"host": [
+						"{{BaseURL}}repos"
+					],
+					"path": [
+						"Andrey-Andriyas",
+						"Issue",
+						"issues",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Close issue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "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",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"state\": \"close\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}repos/Andrey-Andriyas/Issue/issues/6",
+					"host": [
+						"{{BaseURL}}repos"
+					],
+					"path": [
+						"Andrey-Andriyas",
+						"Issue",
+						"issues",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "token",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
